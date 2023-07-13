@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function check(){
+            var firstName=document.getElementById("firstname").value
+            var firstNameCheck=/^[a-zA-Z]+$/
+            var email=document.getElementById("email").value
+            var emailCheck=/^[a-zA-Z0-9+_.-]+@[a-z0-9.-]+$/
+            var password=document.getElementById("password").value
+            var passwordCheck=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/
+            var confrimpassword=document.getElementById("confrimpassword").value
+            var confrimpasswordCheck=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/
+            var Male=document.getElementById("gendermale").checked
+            var Female=document.getElementById("genderfemale").checked
+            var gender;
+        
+            var dropdown=document.getElementById
+
+            console.log(firstName)
+            console.log(email)
+            if(firstName==""|| firstName.length<3){
+                alert("please enter your name")
+                return false
+            }
+            if(!firstName.match(firstNameCheck)){
+                alert("Name must carry only character")
+                return false
+            }
+            if(!email.match(emailCheck)){
+                alert("please provide certain email")
+                return false
+            }
+            // if(password==""|| password.length<8){
+            //     alert("please enter your password")
+            //     return false
+            // }
+            if(!password.match(passwordCheck)){
+                alert("please enter strong password")
+                return false
+            }
+            if(!confrimpassword.match(confrimpasswordCheck)){
+                alert("please enter same password")
+                return false
+            }
+            if(Male==true)
+                gender="Male"
+            else if(Female==true)
+                gender="Female"
+            else
+                gender="null"
+            return true
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return check()">
+        <p><input id="firstname" placeholder="enter name"/></p>
+        <p><input id="email" placeholder="enter email"/></p>
+        <p><input id="password" placeholder="enter password"/></p>
+        <p><input id="confirm password" placeholder="enter confirm pwd"/></p>
+        <input type="radio" id="gendermale" name="gender" value="Male"/>Male
+        <input type="radio" id="genderfemale" name="gender" value="Male"/>Female<br/>
+        <p><select id="state">
+            <option >choose one</option>
+            <option value="Andhrapradesh">Andhrapradesh</option>
+            <option value="kerala">kerala</option>
+            <option value="goa">goa</option>
+            <option value="jaipur">jaipur</option>
+            </select></p>
+        <button>Submit</button>
+    </form>
+    
+</body>
+</html>
