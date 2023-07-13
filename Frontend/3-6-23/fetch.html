@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="users">
+        
+    </div>
+    <script>
+        fetch("https://reqres.in/api/users?page=2")
+         .then((res)=>{
+            console.log(res)
+            return res.json()
+         })
+         .then((updateRes)=>{
+            //console.log(updateRes.data)
+            displayData(updateRes.data)
+         })
+         function displayData(employees){
+            console.log("employees",employees)
+            var users=document.getElementById("users")
+            for(var i=0;i<employees.length;i++){
+                users.innerHTML+=`
+                    <div>
+                        <p>Name:${employees[i].first_name}</p>
+                        <p>Email:${employees[i].email}</p>
+                        <img src:"${employees[i].avatar}"/>
+
+                    </div>
+                `
+            }
+         }
+    </script>
+</body>
+</html>
